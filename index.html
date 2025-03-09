@@ -1,0 +1,324 @@
+<!--
+    Project: knz.dev – Tree of Juicy Links
+    Author: knz.cx
+    Version: 1.0.0
+    Last Modified: 09-03-2025
+    Description: A personal link tree page to share my profiles and interests, including GitHub, Spotify, and more.
+    Contact: tree@knz.dev
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://umami.knz.cx/script.js" data-website-id="cabb80bc-ff36-453f-9a56-fda039ea5033"></script>
+    <title>knz.dev – tree of juicy links</title>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --hover-color: #5649c0;
+            --bg-color: #f9f9f9;
+            --card-color: #ffffff;
+            --text-color: #333333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .profile-bio {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #666;
+            max-width: 100%;
+            padding: 0 0.5rem;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .link-card {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: var(--text-color);
+            width: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .link-title {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-description {
+            font-size: 0.9rem;
+            color: #666;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        /* Dark mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --card-color: #1e1e1e;
+                --text-color: #e0e0e0;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* Responsive design - Tablet */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .link-card {
+                padding: 0.9rem;
+            }
+        }
+
+        /* Responsive design - Mobile */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-name {
+                font-size: 1.5rem;
+            }
+            
+            .link-card {
+                padding: 0.8rem;
+            }
+            
+            .link-icon {
+                min-width: 36px;
+                height: 36px;
+                margin-right: 0.8rem;
+            }
+            
+            .link-title {
+                font-size: 0.95rem;
+            }
+            
+            .link-description {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .profile-name {
+                font-size: 1.3rem;
+            }
+            
+            .profile-bio {
+                font-size: 0.9rem;
+            }
+            
+            .link-icon {
+                min-width: 32px;
+                height: 32px;
+                margin-right: 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="/assets/profile-image.jpg" alt="profile image" class="profile-img">
+            <h1 class="profile-name">@knz.dev</h1>
+            <p class="profile-bio">DevOps | AWS | Docker</p>
+        </div>
+
+        <div class="links-container">
+            <a href="https://blog.knz.dev" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Blog (coming soon...)</div>
+                    <div class="link-description">Linux, Docker, AWS and everything I am interested in.</div>
+                </div>
+            </a>
+            <a href="https://x.com/knz_dev" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1200 1227" fill="none">
+                        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+                        fill="currentColor" />
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">X</div>
+                    <div class="link-description">Posting about my stuff sometimes</div>
+                </div>
+            </a>
+            <a href="https://github.com/knzcx" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">GitHub</div>
+                    <div class="link-description">Everything I code will end up here</div>
+                </div>
+            </a>
+            <a href="https://open.spotify.com/user/1145277528" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 11.5C10.5 10.5 13.5 10.5 16 11.5"></path>
+                        <path d="M9 14C10.5 13.5 12.5 13.5 14 14"></path>
+                        <path d="M7 8.5C11 7 13.5 7 17 8.5"></path>
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Spotify</div>
+                    <div class="link-description">Mostly progressive, melodic beats</div>
+                </div>
+            </a>
+            <a href="#" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Newsletter</div>
+                    <div class="link-description">Maybe in the future, but guaranteed spam-free.</div>
+                </div>
+            </a>
+            <a href="#" class="link-card">
+                <div class="link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+                    </svg>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Contact</div>
+                    <div class="link-description">Feel free to contact me via {contact_email}</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 knz.dev • All rights reserved</p>
+        </div>
+    </div>
+</body>
+
+</html>
